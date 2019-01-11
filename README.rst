@@ -15,6 +15,7 @@ And add the following to your project's URLConf.
 
   path('demo/', include('demo.urls')),
 
+
 Exercise #1
 -------------------------------------------------------
 
@@ -26,8 +27,35 @@ Run the following management command.
 
 See the swap_case method in demo.management.commands.swap_case for details.
 
+
 Exercise #2
 -------------------------------------------------------
+
+The bug is a TypeError exception because str and int can't be concatenated without a type conversion.
+
+Here's a couple of alternatives for the response.
+
+.. code-block:: bash
+
+  return HttpResponse("There are " + str(count_articles) + " articles")
+
+.. code-block:: bash
+  
+  return HttpResponse("There are {0:d} articles".format(count_articles))
+
+The performance issue is the article count. The number should come from the count method of the queryset, which uses SELECT COUNT(*), to avoid retrieving all objects.
+
+The corrected view should be like this.
+
+.. code-block:: bash
+
+  from django.http import HttpResponse
+  from .models import Article
+
+    def article_total_count(request):
+        count_articles = Article.objects.count()
+        return HttpResponse("There are {0:d} articles".format(count_articles))
+
 
 Exercise #3
 -------------------------------------------------------

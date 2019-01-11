@@ -1,9 +1,10 @@
 from django.shortcuts import render
+from django.http import HttpResponse
+from .models import Article
 
-
-def index(request):
-    return render(request, 'demo/index.html')
-
+def article_total_count(request):
+    count_articles = Article.objects.count()
+    return HttpResponse("There are {0:d} articles".format(count_articles))
 
 def detail(request, question_id):
     context = {
