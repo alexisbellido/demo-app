@@ -1,0 +1,30 @@
+{% extends "demo/base_demo.html" %}
+
+{% block title %}{{ block.super }} - Add TV Program{% endblock title %}
+
+{% block content %}
+  <h2>Add TV Program</h2>
+  
+  <p>{{ form.non_field_errors }}</p>
+
+  <form action="" method="post">
+    {% csrf_token %}
+
+    <div>
+        <label for="{{ form.title.id_for_label }}">Show Title:</label>
+        {{ form.title }}
+    </div>
+
+    <div>
+        <label for="{{ form.start_hour.id_for_label }}">Start Time:</label>
+        {{ form.start_hour }} : {{ form.start_minute }}
+    </div>
+
+    <div>
+        <label for="{{ form.end_hour.id_for_label }}">End Time:</label>
+        {{ form.end_hour }} : {{ form.end_minute }}
+    </div>
+
+    <input type="submit" value="Submit">
+</form>
+{% endblock content %}

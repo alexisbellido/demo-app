@@ -3,18 +3,6 @@
 {% block title %}{{ block.super }} - detail{% endblock title %}
 
 {% block content %}
-  
-  <h2>detail page for question_id {{ question_id }}</h2>
-  <h2>person's name: {{ person.name }}</h2>
-  <p>quote: {{ person.quote|title }}</p>
-  
-  {% if colors %}
-    <p>colors: {{ colors|join:', ' }}</p>
-    <ul>
-    {% for color in colors %}
-      <li>{{ color }}</li>
-    {% endfor %}
-    </ul>
-  {% endif %}
-  
+  <h2>TV Program: {{ tv_program.title }}</h2>
+  <h2>From {{ tv_program.start_time }} to {{ tv_program.end_time }}</h2>
 {% endblock content %}
