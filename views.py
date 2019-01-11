@@ -2,10 +2,15 @@ from datetime import time
 
 from django.shortcuts import render
 from django.http import HttpResponse
+
 from .models import Article, TVProgram
+from .forms import TVProgramForm
+
 
 def article_total_count(request):
     count_articles = Article.objects.count()
+    return HttpResponse("There are {0:d} articles".format(count_articles))
+
 
 def add_tv_program(request):
     """
@@ -19,6 +24,7 @@ def add_tv_program(request):
     end_time = time(12, 10, 59)
     count_conflicting_programs = TVProgram.objects.filter(start_time__gte=start_time, end_time__lte=end_time).count()
     return HttpResponse("There are {0:d} TV programs conflicting with that time.".format(count_conflicting_programs))
+
 
 def detail(request, question_id):
     context = {
