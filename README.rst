@@ -3,13 +3,13 @@ Demo Django Application
 
 This is a Django application with solutions to some exercises.
 
-It's not packaged as a distributable Python package so simply copy the directory where this README file is into a working Django project and add the following to INSTALLED_APPS:
+It's not packaged as a distributable Python package so you install it by simply copying the directory where this README file resides into a working Django project, add the following to INSTALLED_APPS:
 
 .. code-block:: bash
 
   'demo.apps.DemoConfig',
 
-And add the following to your project's URLConf.
+and add the following line to your project's URLConf:
 
 .. code-block:: bash
 
