@@ -7,7 +7,13 @@ It's not packaged as a distributable Python package so simply copy the directory
 
 .. code-block:: bash
 
-  'demoapp.apps.DemoappConfig',
+  'demo.apps.DemoConfig',
+
+And add the following to your project's URLConf.
+
+.. code-block:: bash
+
+  path('demo/', include('demo.urls')),
 
 Exercise #1
 -------------------------------------------------------
