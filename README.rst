@@ -22,8 +22,9 @@ Run the following management command.
 
 .. code-block:: bash
 
-  $ django-admin swap_case --string "Up and Down 1.2" 
+  $ django-admin swap_case "Up and Down 1.2" 
 
+See the swap_case method in demo.management.commands.swap_case for details.
 
 Exercise #2
 -------------------------------------------------------
@@ -38,4 +39,6 @@ Run the following management command.
 
 .. code-block:: bash
 
-  $ django-admin mutate_string --string "Up and Down 1.2" --position 2 --character "D" 
+  $ django-admin mutate_string "pythom" --position 5 --character n
+
+See the mutate_string method in demo.management.commands.mutate_string for details.

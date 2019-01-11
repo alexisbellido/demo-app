@@ -11,7 +11,7 @@ class Command(BaseCommand):
     help = """
 Examples:
 
-    $ django-admin swap_case --string "Up and Down 1.2"
+    $ django-admin swap_case "Up and Down 1.2"
 """
 
     def create_parser(self, *args, **kwargs):
