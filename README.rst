@@ -1,7 +1,10 @@
 Demo Django Application
 ===========================================
 
-This is a Django application with solutions to some exercises.
+This is a Django application with solutions to the proposed exercises.
+
+Installation
+-------------------------------------------------------
 
 It's not packaged as a distributable Python package so you install it by simply copying the directory where this README file resides into a working Django project, add the following to INSTALLED_APPS:
 
@@ -16,7 +19,7 @@ and add the following line to your project's URLConf:
   path('demo/', include('demo.urls')),
 
 
-Exercise #1
+Solution to Exercise #1
 -------------------------------------------------------
 
 Run the following management command.
@@ -28,7 +31,7 @@ Run the following management command.
 See the swap_case method in demo.management.commands.swap_case for details.
 
 
-Exercise #2
+Solution to Exercise #2
 -------------------------------------------------------
 
 The bug is a TypeError exception because str and int can't be concatenated without a type conversion.
@@ -57,10 +60,21 @@ The corrected view should be like this.
         return HttpResponse("There are {0:d} articles".format(count_articles))
 
 
-Exercise #3
+Solution to Exercise #3
 -------------------------------------------------------
 
-Exercise #4
+This is a very simple implementation and just verifies that there's no time overlap between TV Programs and that the end time is always after the start time.
+
+Please review the TVProgram model and the corresponding form at
+`models.py <https://github.com/alexisbellido/demo-app/blob/master/models.py>`_ and ` `forms.py <https://github.com/alexisbellido/demo-app/blob/master/forms.py>_.
+
+I'm using a simple form instead of a ModelForm and just raising forms.ValidationError instead of using the Django's messages framework for demonstration purposes.
+
+I also added a simple view to display the form at /add-tv-program and a basic detail view, to which a successful form submission redirects.
+
+Minimal templates and inline style are also included.
+
+Solution to Exercise #4
 -------------------------------------------------------
 
 Run the following management command.
@@ -70,8 +84,3 @@ Run the following management command.
   $ django-admin mutate_string "pythom" --position 5 --character n
 
 See the mutate_string method in demo.management.commands.mutate_string for details.
-
-TODO
-==============
-
-Form to add TV Program.

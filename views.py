@@ -1,6 +1,5 @@
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, render, redirect
 from django.http import HttpResponse
-# from django.http import HttpResponseRedirect
 
 from .models import Article, TVProgram
 from .forms import TVProgramForm
@@ -13,15 +12,17 @@ def article_total_count(request):
 
 def add_tv_program(request):
     """
-    Make sure there are not conflicting TV programs at the provided time.
+    Assumes the same TV programs are running every day so it only checks
+    for conflicting times during one day.
+
+    Uses a minimal function-based view instead of a class-based view inheriting from
+    django.views.generic.edit.FormView for demonstration purposes.
     """
     if request.method == 'POST':
         form = TVProgramForm(request.POST)
         if form.is_valid():
             tv_program = form.save()
-            # return HttpResponseRedirect('/demo/tv-program-added')
-            return tv_program.get_absolute_url()
-
+            return redirect(tv_program)
     else:
         form = TVProgramForm()
 
@@ -31,10 +32,10 @@ def add_tv_program(request):
         {'form': form}
     )
 
-def tv_program_added(request):
-    return render(request, 'demo/tv-program-added.html')
-
 
 def detail(request, tv_program_id):
     tv_program = get_object_or_404(TVProgram, pk=tv_program_id)
-    return render(request, 'demo/detail.html', {'tv_program': tv_program})
+    context = {
+        'tv_program': tv_program
+    }
+    return render(request, 'demo/detail.html', context)

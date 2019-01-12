@@ -19,4 +19,4 @@ class TVProgram(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('tv_program_detail', args=[str(self.id)])
+        return reverse('demo:tv-program-detail', args=(self.id,))

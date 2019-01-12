@@ -3,6 +3,7 @@
 {% block title %}{{ block.super }} - detail{% endblock title %}
 
 {% block content %}
-  <h2>TV Program: {{ tv_program.title }}</h2>
+  <h1>TV Program: {{ tv_program.title }}</h1>
   <h2>From {{ tv_program.start_time }} to {{ tv_program.end_time }}</h2>
+  <p><a href="{% url 'demo:add-tv-program' %}"">Add another TV program</a></p>
 {% endblock content %}
