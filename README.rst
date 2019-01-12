@@ -66,7 +66,7 @@ Solution to Exercise #3
 This is a very simple implementation and just verifies that there's no time overlap between TV Programs and that the end time is always after the start time.
 
 Please review the TVProgram model and the corresponding form at
-`models.py <https://github.com/alexisbellido/demo-app/blob/master/models.py>`_ and ` `forms.py <https://github.com/alexisbellido/demo-app/blob/master/forms.py>_.
+`models.py <https://github.com/alexisbellido/demo-app/blob/master/models.py>`_ and `forms.py <https://github.com/alexisbellido/demo-app/blob/master/forms.py>`_.
 
 I'm using a simple form instead of a ModelForm and just raising forms.ValidationError instead of using the Django's messages framework for demonstration purposes.
 
